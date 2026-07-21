@@ -1,0 +1,29 @@
+{
+  "memory_id": "mem_000001",
+  "category": "ai_research",
+  "subcategory": "memory_architecture",
+  "retrieval_key": "SIMA",
+  "short_form": "Category-indexed compressed memory retrieval architecture.",
+  "entities": [
+    "memory",
+    "retrieval",
+    "context",
+    "indexing"
+  ],
+  "topics": [
+    "AI",
+    "memory",
+    "retrieval",
+    "architecture"
+  ],
+  "importance": 0.91,
+  "confidence": 0.87,
+  "timestamp": "2026-07-21T00:00:00Z",
+  "source": "conversation",
+  "full_content": "Full memory stored separately.",
+  "embedding": "vector_reference",
+  "relationships": [
+    "mem_000014",
+    "mem_000027"
+  ]
+}
