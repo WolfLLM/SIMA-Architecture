@@ -1,0 +1,272 @@
+Architecture
+
+SIMA is composed of the following major components:
+
+1. Query Interpreter
+
+Converts a user query into a structured retrieval request.
+
+Example:
+
+"What was that memory architecture idea I had yesterday?"
+
+May produce:
+
+{
+  "intent": "recall",
+  "entities": [
+    "memory architecture"
+  ],
+  "time_reference": "recent",
+  "requested_detail": "high"
+}
+2. Category Router
+
+Routes the query to relevant memory domains before semantic retrieval.
+
+Example:
+
+AI
+  |
+  +-- Research
+       |
+       +-- Memory
+
+This reduces the number of candidate memories requiring deeper evaluation.
+
+3. Short-Form Index
+
+Searches compact retrieval representations.
+
+Example:
+
+MEM_001
+Category-indexed compressed memory retrieval
+
+MEM_002
+Hierarchical memory routing
+
+MEM_003
+Graph-based associative memory
+
+MEM_004
+Long-context retrieval optimization
+4. Relevance Ranker
+
+Ranks candidate memories using multiple signals.
+
+A conceptual scoring function is:
+
+R(m,q) =
+    w_s * SemanticSimilarity
+  + w_c * CategoryMatch
+  + w_t * TemporalRelevance
+  + w_e * EntityOverlap
+  + w_i * Importance
+
+The weights are experimental and should be benchmarked.
+
+5. Memory Graph
+
+Memories may be connected by explicit relationships.
+
+MEM_001
+  |
+  +-- related_to --> MEM_004
+  |
+  +-- derived_from --> MEM_009
+  |
+  +-- extends --> MEM_021
+
+This enables multi-hop retrieval.
+
+6. Memory Expansion
+
+Only high-confidence candidates are expanded into full memory objects.
+
+This creates progressive retrieval:
+
+Category
+    |
+    v
+Short Form
+    |
+    v
+Candidate
+    |
+    v
+Detailed Memory
+    |
+    v
+Full Memory
+7. Context Assembler
+
+Combines selected memories into the final context passed to the model.
+
+The assembler should prioritize:
+
+Relevance
+Recency
+Confidence
+Importance
+Relationship coherence
+Token budget
+Hierarchical Retrieval
+
+SIMA supports multiple retrieval layers:
+
+Level 4 - Category Index
+        |
+        v
+Level 3 - Entity / Keyword Index
+        |
+        v
+Level 2 - Short Retrieval Form
+        |
+        v
+Level 1 - Detailed Summary
+        |
+        v
+Level 0 - Full Memory
+
+Retrieval proceeds from cheap representations to expensive representations.
+
+The system should only descend deeper when additional information is required.
+
+Adaptive Retrieval
+
+SIMA can dynamically change retrieval depth based on confidence.
+
+High confidence:
+
+Query
+  |
+  v
+Category
+  |
+  v
+Top Memory
+  |
+  v
+Answer
+
+Low confidence:
+
+Query
+  |
+  v
+Category
+  |
+  v
+Broad Candidate Set
+  |
+  v
+Graph Traversal
+  |
+  v
+Expanded Memories
+  |
+  v
+Re-ranking
+  |
+  v
+Answer
+
+The intended relationship is:
+
+Retrieval Depth = f(Retrieval Confidence)
+Memory Graph
+
+The memory graph is represented as:
+
+G = (V, E)
+
+where:
+
+V = Memory Nodes
+E = Relationships Between Memories
+
+Possible relationship types include:
+
+related_to
+derived_from
+extends
+contradicts
+supersedes
+supports
+references
+
+A query may begin at one memory and traverse related memories.
+
+Example:
+
+Memory Architecture
+        |
+        v
+Graph Theory
+        |
+        v
+Network Connectivity
+        |
+        v
+Retrieval Architecture
+
+This allows the system to retrieve conceptual relationships that may not be represented by a single embedding.
+
+Expected Benefits
+
+SIMA is designed to investigate whether indexed progressive retrieval can provide:
+
+Lower retrieval latency
+Lower token consumption
+Higher effective memory capacity
+Reduced context pollution
+Improved long-term recall
+Better multi-hop memory retrieval
+Improved scalability
+
+These are hypotheses, not established results.
+
+Benchmarking
+
+SIMA should be compared against at least:
+
+Baseline A
+
+Flat vector retrieval.
+
+Baseline B
+
+Vector retrieval + reranking.
+
+SIMA
+
+Category routing + short-form retrieval + progressive expansion.
+
+SIMA+
+
+Category routing + short-form retrieval + graph traversal + adaptive expansion.
+
+Measure:
+
+Recall@K
+Precision@K
+Context Tokens
+Retrieval Latency
+Compute Cost
+Long-Term Recall Accuracy
+Multi-Hop Recall Accuracy
+
+The primary hypothesis is:
+
+SIMA
+
+≈ or > Retrieval Quality
+
+while reducing:
+
+Tokens
+Latency
+Compute
+
+These results must be established empirically.
