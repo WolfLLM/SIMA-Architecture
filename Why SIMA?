@@ -1,0 +1,82 @@
+Relevant Information Retrieved
+--------------------------------
+Tokens + Compute + Latency
+Why SIMA?
+
+As AI systems accumulate long-term memory, the total memory corpus can grow far beyond the model's active context window.
+
+A naive architecture might conceptually operate like:
+
+Prompt
+  |
+  v
+Search large memory corpus
+  |
+  v
+Retrieve large memory objects
+  |
+  v
+Inject into context
+
+This can create several problems:
+
+Increasing retrieval cost
+Increasing context consumption
+Retrieval of irrelevant information
+Context pollution
+Redundant memories
+Difficulty scaling to very large memory stores
+Increased latency
+
+SIMA proposes a progressive retrieval architecture:
+
+Prompt
+  |
+  v
+Identify likely category
+  |
+  v
+Search compact memory representations
+  |
+  v
+Rank candidates
+  |
+  v
+Expand only relevant memories
+  |
+  v
+Assemble final context
+
+The architecture does not claim to increase the model's physical context window.
+
+Instead, it aims to increase the effective usable memory capacity by reducing how much irrelevant information must be loaded into the active context.
+
+Core Principle
+
+SIMA separates the representation used to store a memory from the representation used to find that memory.
+
+Full Memory
+    |
+    +-- Persistent Content
+    |
+    +-- Short Retrieval Form
+    |
+    +-- Category
+    |
+    +-- Subcategory
+    |
+    +-- Entities
+    |
+    +-- Topics
+    |
+    +-- Embedding
+    |
+    +-- Relationships
+
+The retrieval system searches the inexpensive representations first.
+
+Full memory content is expanded only after relevance has been established.
+
+Core principle
+
+Store broadly. Retrieve narrowly. Expand progressively.
