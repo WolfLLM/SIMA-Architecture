@@ -1,0 +1,58 @@
+from pathlib import Path
+
+readme = r"""# Short-Form Indexed Memory Architecture (SIMA)
+
+> A model-agnostic architecture for scalable long-term AI memory retrieval.
+
+**Status:** Experimental / Open Research  
+**Version:** 0.1.0
+
+---
+
+## Overview
+
+Short-Form Indexed Memory Architecture (SIMA) is an experimental memory architecture designed to improve the efficiency of long-term memory retrieval in AI systems.
+
+The central hypothesis is:
+
+> A memory system should not need to retrieve the full representation of every potentially relevant memory in order to determine which memories are actually relevant.
+
+SIMA separates:
+
+1. Persistent memory storage
+2. Memory retrieval representation
+3. Memory indexing
+4. Memory ranking
+5. Full memory expansion
+6. Context assembly
+
+Instead of searching and loading full memory objects immediately, SIMA first searches compact, structured representations and progressively expands only the memories that are likely to be relevant.
+
+### Core retrieval pipeline
+
+```text
+User Query
+    |
+    v
+Query Interpretation
+    |
+    v
+Category Routing
+    |
+    v
+Short-Form Index Search
+    |
+    v
+Candidate Ranking
+    |
+    v
+Relationship / Graph Traversal
+    |
+    v
+Full Memory Expansion
+    |
+    v
+Context Assembly
+    |
+    v
+LLM
